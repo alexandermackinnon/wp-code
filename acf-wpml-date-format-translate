@@ -1,0 +1,22 @@
+/* Date formatting shortcode */
+
+function format_date( $atts ) { 
+    global $post;
+	$date = get_field("quand", $post->ID ); // Format in ACF: Y-m-d H:i:s
+	if (defined("ICL_LANGUAGE_CODE")) {
+		if(ICL_LANGUAGE_CODE == "fr" ) {
+			$ts = new DateTime($date);
+			$formatter = new IntlDateFormatter('fr_FR', IntlDateFormatter::LONG, IntlDateFormatter::LONG);
+			$formatter->setPattern("d MMMM, y - H 'h' mm");
+			return $formatter->format($ts);
+		} else {
+			$ts = new DateTime($date);
+			$formatter = new IntlDateFormatter('en_US', IntlDateFormatter::LONG, IntlDateFormatter::LONG);
+			$formatter->setPattern("MMMM d, y - h':'mm aaa");
+			return $formatter->format($ts);
+		}
+	} else {
+		return $date;
+	}
+}
+add_shortcode( 'event_date', 'format_date');
