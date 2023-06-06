@@ -1,0 +1,18 @@
+function proso_opening_hours() {
+	date_default_timezone_set('America/New_York'); // Set the time zone to Eastern Time Zone
+
+	$currentDayOfWeek = date('N'); // Get the day of the week (1 for Monday, 7 for Sunday)
+	$currentHour = date('H'); // Get the hour in 24-hour format
+
+	if ($currentDayOfWeek >= 1 && $currentDayOfWeek <= 5) { // Check if it is a weekday
+	  if ($currentHour >= 8 && $currentHour < 17) { // Check if it is between 8am and 5pm
+		echo "OPEN TODAY until 5PM";
+	  } else {
+		echo "Currently CLOSED";
+	  }
+	} else {
+	  echo "CLOSED on weekends";
+	}
+}
+
+add_shortcode( 'opening_hours', 'proso_opening_hours');
