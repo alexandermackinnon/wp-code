@@ -1,0 +1,14 @@
+Le message suivant provient du site Web de FP Outaouais.
+
+<hr>
+
+<h2>Expéditeur</h2>
+  <h4>[field id="fname"] [field id="lname"]</h4>
+  <ul>
+    <li><b>Courriel</b>: [field id="email"]</li>
+    <li><b>Téléphone</b>: [field id="tel"]</li>
+  </ul>
+
+<h2>Message</h2>
+  <h4>[field id="subject"]</h4>
+  <p>[field id="message"]</p>
