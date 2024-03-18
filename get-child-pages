@@ -1,0 +1,13 @@
+/* ---------- Get child pages from current post query ---------- */
+
+function ap_child_services_query_func( $query ) {
+    // Check if the current query ID matches your intended Elementor query ID
+
+	$current_post_id = get_the_ID();
+
+	// Modify the query to get only child services from the current post
+	$query->set( 'post_type', 'NAME_OF_POST_TYPE_HERE' );
+	$query->set( 'post_parent', $current_post_id );
+}
+
+add_action( 'elementor/query/ap_child_services_query', 'ap_child_services_query_func' );
