@@ -8,4 +8,4 @@ function hello_elementor_child_enqueue_scripts() {
 		filemtime(get_stylesheet_directory() . '/style.css'), 'all'
 	);
 }
-add_action( 'wp_enqueue_scripts', 'hello_elementor_child_enqueue_scripts', 20 );
+add_action( 'wp_enqueue_scripts', 'hello_elementor_child_enqueue_scripts', 999 );
