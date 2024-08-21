@@ -1,0 +1,20 @@
+/* ------------------ Textures ------------------ */
+
+.tac-texture svg {
+    width: 1em !important;
+    height: auto !important;
+}
+
+.tac-texture svg g {
+    clip-path: none !important;
+}
+
+.tac-texture .elementor-icon {
+    display: block !important;
+}
+
+.tac-texture.center-vertical {
+    top: 50% !important;
+    bottom: auto !important;
+    transform: translateY(-50%) !important;
+}
