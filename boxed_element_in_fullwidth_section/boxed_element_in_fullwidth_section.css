@@ -1,40 +1,45 @@
-/*
-
-USE FOLLOWING STRUCTURE:
-
-<div> --> Fullwidth container
-  <div> 
-    <div> --> Holds "boxed_left" or "boxed_right" class
-    </div>
-  </div>
-</div>
-
-REPLACE "1640px" with boxed container size
-REPLACE "15px" with left/right page margins 
-
-*/
-
-@media only screen and (min-width: 1620px) {
-  .boxed_left {
-    padding-left: calc((((100vw - 17px) - 1640px) / 2) - 15px) !important;
-  }
-
-  .boxed_right {
-    padding-right: calc((((100vw - 17px) - 1640px) / 2) - 15px) !important;
-  }
-
-  body.mac .boxed_left {
-    padding-left: calc(((100vw - 1640px) / 2) - 15px) !important;
-  }
-  body.mac .boxed_right {
-    padding-right: calc(((100vw - 1640px) / 2) - 15px) !important;
-  }
-
-  body.mac.scrollbars-visible .boxed_left {
-    padding-left: calc((((100vw - 15px) - 1640px) / 2) - 15px) !important;
-  }
-
-  body.mac.scrollbars-visible .boxed_right {
-    padding-right: calc((((100vw - 15px) - 1640px) / 2) - 15px) !important;
-  }
+/*  Boxed Element In Fullwidth Section (with container) */
+:root {
+    --padding: 15px;
+    --container: 1640px;
+    --scroll-bar-width-windows: 17px;
+    --scroll-bar-width-mac: 15px;
+}
+@media only screen and (min-width : 1620px) {
+    .boxed_left {
+        padding-left: calc( ( ( ( 100vw - var(--scroll-bar-width-windows) ) - var(--container) ) / 2 ) - var(--padding) ) !important;
+    }
+    .boxed_left_no_padding {
+        padding-left: calc( ( ( ( 100vw - var(--scroll-bar-width-windows) ) - var(--container) ) / 2 ) ) !important;
+    }
+    .boxed_right {
+        padding-right: calc( ( ( ( 100vw - var(--scroll-bar-width-windows)) - var(--container) ) / 2 ) - var(--padding) ) !important;
+    }
+    .boxed_right_no_padding {
+        padding-right: calc( ( ( ( 100vw - var(--scroll-bar-width-windows)) - var(--container) ) / 2 ) ) !important;
+    }
+    body.mac .boxed_left {
+        padding-left: calc( ( (  100vw - var(--container) ) / 2 ) - var(--padding) ) !important;
+    }
+    body.mac .boxed_left_no_padding {
+        padding-left: calc( ( (  100vw - var(--container) ) / 2 ) ) !important;
+    }
+    body.mac .boxed_right {
+        padding-right: calc( ( ( 100vw - var(--container) ) / 2 ) - var(--padding) ) !important;
+    }
+    body.mac .boxed_right_no_padding {
+        padding-right: calc( ( ( 100vw - var(--container) ) / 2 ) ) !important;
+    }
+    body.mac.scrollbars-visible .boxed_left {
+        padding-left: calc( ( ( ( 100vw - var(--scroll-bar-width-mac)  ) - var(--container) ) / 2 ) - var(--padding) ) !important;
+    }
+    body.mac.scrollbars-visible .boxed_left_no_padding {
+        padding-left: calc( ( ( ( 100vw - var(--scroll-bar-width-mac)  ) - var(--container) ) / 2 ) ) !important;
+    }
+    body.mac.scrollbars-visible .boxed_right {
+        padding-right: calc( ( ( ( 100vw - var(--scroll-bar-width-mac) ) - var(--container) ) / 2 ) - var(--padding) ) !important;
+    }
+    body.mac.scrollbars-visible .boxed_right_no_padding {
+        padding-right: calc( ( ( ( 100vw - var(--scroll-bar-width-mac) ) - var(--container) ) / 2 ) ) !important;
+    }
 }
